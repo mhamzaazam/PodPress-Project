@@ -33,7 +33,7 @@
     html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body {
       font-family: var(--font-body);
-      background: var(--bg);
+      background: var(--surface);
       color: var(--text);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -381,6 +381,122 @@
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========== WHY PODPRESS ========== */
+    .why-section { background: var(--bg); }
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .why-left { position: sticky; top: 120px; }
+    .why-left .section-label { margin-bottom: 16px; }
+    .why-left .section-title { margin-bottom: 20px; }
+    .why-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      max-width: 420px;
+    }
+    /* Stats row */
+    .why-stats {
+      display: flex;
+      gap: 40px;
+    }
+    .why-stat {
+      display: flex;
+      flex-direction: column;
+    }
+    .why-stat-value {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .why-stat-value .stat-accent { color: var(--ampersand); }
+    .why-stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    /* Feature cards grid */
+    .why-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(17,17,17,0.06);
+      border-color: transparent;
+    }
+    .why-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+    .why-card-icon.icon-orange {
+      background: rgba(255,90,31,0.08);
+      color: var(--ampersand);
+    }
+    .why-card-icon.icon-blue {
+      background: rgba(58,103,255,0.08);
+      color: var(--cornflower);
+    }
+    .why-card-icon.icon-slate {
+      background: rgba(43,47,54,0.08);
+      color: var(--slate);
+    }
+    .why-card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .why-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .why-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    @media (max-width: 1024px) {
+      .why-layout { grid-template-columns: 1fr; gap: 48px; }
+      .why-left { position: static; }
+    }
+    @media (max-width: 768px) {
+      .why-stats { gap: 28px; }
+      .why-stat-value { font-size: 1.8rem; }
+    }
+    @media (max-width: 480px) {
+      .why-cards { grid-template-columns: 1fr; }
+      .why-stats { flex-wrap: wrap; gap: 24px; }
     }
 
     /* ========== MARQUEE ========== */
@@ -1027,41 +1143,107 @@
 
     /* ========== PRICING ========== */
     .pricing { background: var(--surface); }
-    .pricing .header { text-align: center; margin-bottom: 64px; }
+    .pricing .header { text-align: center; margin-bottom: 48px; }
     .pricing .header .section-desc { margin: 0 auto; }
+
+    /* --- Billing toggle --- */
+    .billing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+    .billing-toggle span {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+    .billing-toggle span.active { color: var(--ink); }
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      background: var(--border);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: background 0.25s ease;
+      flex-shrink: 0;
+    }
+    .toggle-switch.is-yearly { background: var(--ampersand); }
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toggle-switch.is-yearly::after { transform: translateX(22px); }
+    .billing-save {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ampersand);
+      background: rgba(255,90,31,0.08);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* --- Grid: 4 columns --- */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
       align-items: start;
     }
+
+    /* --- Card base --- */
     .price-card {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px 28px;
+      border-radius: 18px;
+      padding: 32px 24px 28px;
       position: relative;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
     }
-    .price-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(17,17,17,0.06); }
+    .price-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 56px rgba(17,17,17,0.07);
+    }
+
+    /* --- Featured card --- */
     .price-card.featured {
       border: 2px solid var(--ampersand);
       background: var(--surface);
+      box-shadow: 0 8px 32px rgba(255,90,31,0.08);
     }
-    .price-card.featured::before {
-      content: 'MOST POPULAR';
+    .price-card.featured:hover {
+      box-shadow: 0 24px 64px rgba(255,90,31,0.12);
+    }
+    .price-badge {
       position: absolute;
       top: -13px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--ampersand);
       color: #fff;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      padding: 5px 14px;
+      padding: 5px 16px;
       border-radius: var(--radius-full);
+      white-space: nowrap;
     }
+
+    /* --- Card content --- */
     .price-name {
       font-family: var(--font-display);
       font-size: 1.15rem;
@@ -1069,36 +1251,68 @@
       margin-bottom: 6px;
     }
     .price-desc {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .price-amount-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
     }
     .price-amount {
       font-family: var(--font-display);
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 400;
       line-height: 1;
-      margin-bottom: 4px;
+    }
+    .price-amount .price-currency {
+      font-size: 1.4rem;
+      vertical-align: super;
+      margin-right: 2px;
+    }
+    .price-per {
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
     .price-card.featured .price-amount { color: var(--ampersand); }
     .price-period {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
+      min-height: 18px;
+    }
+    .price-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+    .price-features-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
     }
     .price-features {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 11px;
       margin-bottom: 28px;
+      flex: 1;
     }
     .price-features li {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
+      line-height: 1.45;
     }
     .price-features li .check {
       width: 18px;
@@ -1111,8 +1325,14 @@
       justify-content: center;
       font-size: 0.6rem;
       flex-shrink: 0;
+      margin-top: 1px;
     }
-    .price-card .btn { width: 100%; }
+    .price-card .btn { width: 100%; margin-top: auto; }
+
+    /* --- Yearly prices (hidden by default) --- */
+    .price-yearly { display: none; }
+    .pricing.is-yearly .price-monthly { display: none; }
+    .pricing.is-yearly .price-yearly { display: flex; }
 
     /* ========== FAQ ========== */
     .faq .header { text-align: center; margin-bottom: 64px; }
@@ -1183,8 +1403,8 @@
       overflow: hidden;
     }
     .cta-inner {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
+      background: var(--porcelain);
+      border: 1px solid var(--porcelain);
       border-radius: 20px;
       padding: 80px 60px;
       text-align: center;
@@ -1292,6 +1512,7 @@
       .bento-1 .bento-visual { min-height: 220px; }
       .bento-2, .bento-3 { grid-column: span 3; }
       .bento-4, .bento-5, .bento-6 { grid-column: span 3; }
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: 0 auto; }
     }
     @media (max-width: 768px) {
       section { padding: 80px 0; }
@@ -1315,6 +1536,7 @@
       .bento-1 .bento-visual { min-height: 200px; }
       .testimonial-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .billing-toggle { flex-wrap: wrap; }
       .mockup-content { grid-template-columns: 1fr; }
       .mockup-arrow { display: none; }
       .section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
@@ -1327,9 +1549,231 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
     }
+
+    /* ========== CUSTOM CURSOR ========== */
+    @media (pointer: fine) {
+      *, *::before, *::after { cursor: none !important; }
+
+      .cursor {
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 99999;
+        pointer-events: none;
+        will-change: transform;
+        mix-blend-mode: difference;
+      }
+
+      /* --- Dot (always visible) --- */
+      .cursor-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ffffff;
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                    background 0.18s ease,
+                    width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 3;
+      }
+
+      /* --- Wave arcs (hidden by default) --- */
+      .cursor-waves {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        z-index: 1;
+      }
+      .cursor-arc {
+        position: absolute;
+        top: 50%; left: 50%;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    width 0.3s ease, height 0.3s ease,
+                    border-color 0.3s ease;
+      }
+      /* Left arcs */
+      .cursor-arc.arc-l1 {
+        width: 28px; height: 28px;
+        clip-path: inset(0 50% 0 0);
+      }
+      .cursor-arc.arc-l2 {
+        width: 44px; height: 44px;
+        clip-path: inset(0 50% 0 0);
+      }
+      /* Right arcs */
+      .cursor-arc.arc-r1 {
+        width: 28px; height: 28px;
+        clip-path: inset(0 0 0 50%);
+      }
+      .cursor-arc.arc-r2 {
+        width: 44px; height: 44px;
+        clip-path: inset(0 0 0 50%);
+      }
+
+      /* --- HOVER state: show inner arcs --- */
+      .cursor.is-hover .cursor-dot {
+        transform: translate(-50%, -50%) scale(1.15);
+      }
+      .cursor.is-hover .cursor-arc {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .cursor.is-hover .cursor-arc.arc-l2,
+      .cursor.is-hover .cursor-arc.arc-r2 {
+        opacity: 0.35;
+      }
+
+      /* --- PLAY state (hovering on CTA buttons): all arcs + pulse --- */
+      .cursor.is-play .cursor-dot {
+        transform: translate(-50%, -50%) scale(1.25);
+        animation: cursor-pulse 1.2s ease-in-out infinite;
+      }
+      .cursor.is-play .cursor-arc {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .cursor.is-play .cursor-arc.arc-l1,
+      .cursor.is-play .cursor-arc.arc-r1 {
+        animation: cursor-arc-pulse 1.2s ease-in-out infinite;
+      }
+      .cursor.is-play .cursor-arc.arc-l2,
+      .cursor.is-play .cursor-arc.arc-r2 {
+        opacity: 0.5;
+        animation: cursor-arc-pulse 1.2s ease-in-out 0.15s infinite;
+      }
+
+      /* --- ACTIVE/CLICK state: dot squishes, arcs burst outward --- */
+      .cursor.is-active .cursor-dot {
+        transform: translate(-50%, -50%) scale(0.7);
+      }
+      .cursor.is-active .cursor-arc {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .cursor.is-active .cursor-arc.arc-l1,
+      .cursor.is-active .cursor-arc.arc-r1 {
+        width: 50px; height: 50px;
+        opacity: 0.5;
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+      .cursor.is-active .cursor-arc.arc-l2,
+      .cursor.is-active .cursor-arc.arc-r2 {
+        width: 72px; height: 72px;
+        opacity: 0.25;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* --- Click ripple ring (attached to cursor) --- */
+      .cursor-ripple {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .cursor-ripple.is-animating {
+        animation: cursor-ripple-expand 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* --- Click ripple pool (spawned at click position, NOT blended) --- */
+      .ripple-pool {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 99998;
+        overflow: hidden;
+      }
+      .ripple-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid var(--cornflower);
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        pointer-events: none;
+      }
+      .ripple-ring.ring-1 {
+        width: 40px; height: 40px;
+        animation: ripple-out 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .ripple-ring.ring-2 {
+        width: 70px; height: 70px;
+        animation: ripple-out 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+      }
+      .ripple-ring.ring-3 {
+        width: 100px; height: 100px;
+        animation: ripple-out 1s cubic-bezier(0.16, 1, 0.3, 1) 0.16s forwards;
+      }
+      /* Filled splash behind rings */
+      .ripple-fill {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--cornflower);
+        width: 16px; height: 16px;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        pointer-events: none;
+        animation: ripple-fill-burst 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes cursor-pulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(1.25); }
+        50% { transform: translate(-50%, -50%) scale(1.1); }
+      }
+      @keyframes cursor-arc-pulse {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 0.4; }
+      }
+      @keyframes cursor-ripple-expand {
+        0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.9; }
+        100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+      }
+      @keyframes ripple-out {
+        0% { transform: translate(-50%, -50%) scale(0); opacity: 0.6; }
+        100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+      }
+      @keyframes ripple-fill-burst {
+        0% { transform: translate(-50%, -50%) scale(0); opacity: 0.25; }
+        40% { transform: translate(-50%, -50%) scale(3); opacity: 0.12; }
+        100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+      }
+
+      /* Hide cursor on mobile / touch devices */
+      @media (max-width: 768px) {
+        .cursor { display: none; }
+        .ripple-pool { display: none; }
+        *, *::before, *::after { cursor: auto !important; }
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="cursor" id="customCursor">
+    <div class="cursor-waves">
+      <div class="cursor-arc arc-l1"></div>
+      <div class="cursor-arc arc-l2"></div>
+      <div class="cursor-arc arc-r1"></div>
+      <div class="cursor-arc arc-r2"></div>
+    </div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ripple" id="cursorRipple"></div>
+  </div>
+  <div class="ripple-pool" id="ripplePool"></div>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
@@ -1431,6 +1875,69 @@
     </div>
   </div>
 
+  <!-- ===== WHY PODPRESS ===== -->
+  <section class="why-section" id="why-podpress">
+    <div class="container">
+      <div class="why-layout">
+
+        <!-- Left: heading + stats -->
+        <div class="why-left">
+          <div class="section-label reveal">Why PodPress</div>
+          <h2 class="section-title reveal">Why <em>PodPress?</em></h2>
+          <p class="why-intro reveal">We built PodPress because creators deserve better tools. Repurposing podcast content shouldn't take hours of manual work &mdash; it should happen automatically, beautifully, and on brand.</p>
+          <div class="why-stats reveal">
+            <div class="why-stat">
+              <div class="why-stat-value" data-count="10" data-suffix="x">0x</div>
+              <div class="why-stat-label">Faster than manual</div>
+            </div>
+            <div class="why-stat">
+              <div class="why-stat-value" data-count="50" data-suffix="K+">0K+</div>
+              <div class="why-stat-label">Newsletters generated</div>
+            </div>
+            <div class="why-stat">
+              <div class="why-stat-value" data-count="98" data-suffix="%">0%</div>
+              <div class="why-stat-label">Customer satisfaction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: feature cards -->
+        <div class="why-cards">
+          <div class="why-card reveal">
+            <div class="why-card-icon icon-orange">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h4>Lightning Fast</h4>
+            <p>Go from a published episode to a polished newsletter in under two minutes. No waiting, no bottlenecks.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-1">
+            <div class="why-card-icon icon-blue">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.32 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            </div>
+            <h4>Fully Customizable</h4>
+            <p>Match your brand perfectly with custom colors, fonts, layouts, and tone-of-voice settings for every newsletter.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2">
+            <div class="why-card-icon icon-slate">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h4>Built for Creators</h4>
+            <p>Designed by podcasters, for podcasters. Every feature exists because real creators asked for it.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-3">
+            <div class="why-card-icon icon-orange">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Reliable &amp; Secure</h4>
+            <p>Enterprise-grade infrastructure with 99.9% uptime. Your content and data are always safe and accessible.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- ===== HOW IT WORKS ===== -->
   <section class="how-it-works" id="how-it-works">
     <div class="container">
@@ -1439,19 +1946,19 @@
       <p class="section-desc reveal">From RSS feed to inbox-ready newsletter in under two minutes. No templates, no formatting, no hassle.</p>
       <div class="steps">
         <div class="step-card reveal reveal-delay-1">
-          <div class="step-icon">&#127911;</div>
+          
           <div class="step-number">01</div>
           <h3>Paste Your RSS Feed</h3>
           <p>Connect your podcast in seconds. We pull every episode automatically &mdash; titles, descriptions, timestamps, and audio.</p>
         </div>
         <div class="step-card reveal reveal-delay-2">
-          <div class="step-icon">&#9889;</div>
+          
           <div class="step-number">02</div>
           <h3>AI Does The Heavy Lifting</h3>
           <p>Our AI listens, summarizes, and structures your episode into a clean newsletter with key takeaways, quotes, and highlights.</p>
         </div>
         <div class="step-card reveal reveal-delay-3">
-          <div class="step-icon">&#128640;</div>
+          
           <div class="step-number">03</div>
           <h3>Export &amp; Send</h3>
           <p>One-click export to your favorite email platform. Clean HTML, Markdown, or plain text. Ready to hit send.</p>
@@ -1525,11 +2032,11 @@
             <div class="float-orb" style="width:80px;height:80px;background:var(--cornflower);top:10%;right:10%;"></div>
             <div class="float-orb" style="width:60px;height:60px;background:var(--ampersand);bottom:15%;left:15%;"></div>
             <div class="export-widget">
-              <div class="export-chip">HTML</div>
-              <div class="export-chip">Markdown</div>
-              <div class="export-chip">Substack</div>
-              <div class="export-chip">Mailchimp</div>
-              <div class="export-chip">ConvertKit</div>
+              <div class="export-chip">Newsletter</div>
+              <div class="export-chip">Transcript</div>
+              <div class="export-chip">RSS Feed</div>
+              <div class="export-chip">Custom Upload</div>
+              <div class="export-chip">Templates</div>
             </div>
           </div>
           <div class="bento-card-content">
@@ -1654,49 +2161,122 @@
         <h2 class="section-title reveal">Simple, <em>transparent</em> pricing.</h2>
         <p class="section-desc reveal">Start free. Scale when you're ready. No hidden fees, no surprises.</p>
       </div>
+
+      <!-- Billing Toggle -->
+      <div class="billing-toggle reveal">
+        <span class="toggle-label active" data-plan="monthly">Monthly</span>
+        <div class="toggle-switch" id="billingToggle"></div>
+        <span class="toggle-label" data-plan="yearly">Yearly</span>
+        <span class="billing-save">Save 20%</span>
+      </div>
+
       <div class="pricing-grid">
-        <div class="price-card reveal reveal-delay-1">
+
+        <!-- Card 1: Starter -->
+        <div class="price-card reveal">
           <div class="price-name">Starter</div>
-          <div class="price-desc">Perfect for getting started</div>
-          <div class="price-amount">$0</div>
+          <div class="price-desc">For hobbyist podcasters just getting started with newsletters.</div>
+          <div class="price-amount-row price-monthly">
+            <div class="price-amount"><span class="price-currency">$</span>0</div>
+          </div>
+          <div class="price-amount-row price-yearly">
+            <div class="price-amount"><span class="price-currency">$</span>0</div>
+          </div>
           <div class="price-period">Free forever</div>
+          <div class="price-divider"></div>
+          <div class="price-features-label">What's included</div>
           <ul class="price-features">
             <li><span class="check">&#10003;</span> 3 episodes per month</li>
             <li><span class="check">&#10003;</span> Basic AI summaries</li>
             <li><span class="check">&#10003;</span> HTML &amp; Markdown export</li>
             <li><span class="check">&#10003;</span> PodPress branding</li>
+            <li><span class="check">&#10003;</span> Community support</li>
           </ul>
-          <a href="#" class="btn btn-ghost" style="width:100%;">Get Started</a>
+          <a href="#" class="btn btn-ghost">Get Started</a>
         </div>
-        <div class="price-card featured reveal reveal-delay-2">
-          <div class="price-name">Pro</div>
-          <div class="price-desc">For serious podcasters</div>
-          <div class="price-amount">$29</div>
-          <div class="price-period">per month</div>
+
+        <!-- Card 2: Creator -->
+        <div class="price-card reveal reveal-delay-1">
+          <div class="price-name">Creator</div>
+          <div class="price-desc">For growing creators who want more power and flexibility.</div>
+          <div class="price-amount-row price-monthly">
+            <div class="price-amount"><span class="price-currency">$</span>19</div>
+            <div class="price-per">/month</div>
+          </div>
+          <div class="price-amount-row price-yearly">
+            <div class="price-amount"><span class="price-currency">$</span>15</div>
+            <div class="price-per">/month</div>
+          </div>
+          <div class="price-period price-monthly">Billed monthly</div>
+          <div class="price-period price-yearly">Billed $180/year</div>
+          <div class="price-divider"></div>
+          <div class="price-features-label">Everything in Starter, plus</div>
           <ul class="price-features">
-            <li><span class="check">&#10003;</span> Unlimited episodes</li>
+            <li><span class="check">&#10003;</span> 15 episodes per month</li>
             <li><span class="check">&#10003;</span> Advanced AI with tone matching</li>
             <li><span class="check">&#10003;</span> All export formats</li>
-            <li><span class="check">&#10003;</span> Custom branding</li>
-            <li><span class="check">&#10003;</span> Priority support</li>
+            <li><span class="check">&#10003;</span> Remove PodPress branding</li>
             <li><span class="check">&#10003;</span> RSS auto-sync</li>
+            <li><span class="check">&#10003;</span> Email support</li>
           </ul>
-          <a href="#" class="btn btn-primary" style="width:100%;">Start Free Trial</a>
+          <a href="#" class="btn btn-ghost">Start Free Trial</a>
         </div>
-        <div class="price-card reveal reveal-delay-3">
-          <div class="price-name">Team</div>
-          <div class="price-desc">For agencies &amp; networks</div>
-          <div class="price-amount">$79</div>
-          <div class="price-period">per month</div>
+
+        <!-- Card 3: Creator Pro (Featured) -->
+        <div class="price-card featured reveal reveal-delay-2">
+          <div class="price-badge">MOST POPULAR</div>
+          <div class="price-name">Creator Pro</div>
+          <div class="price-desc">For serious podcasters ready to scale their content.</div>
+          <div class="price-amount-row price-monthly">
+            <div class="price-amount"><span class="price-currency">$</span>49</div>
+            <div class="price-per">/month</div>
+          </div>
+          <div class="price-amount-row price-yearly">
+            <div class="price-amount"><span class="price-currency">$</span>39</div>
+            <div class="price-per">/month</div>
+          </div>
+          <div class="price-period price-monthly">Billed monthly</div>
+          <div class="price-period price-yearly">Billed $468/year</div>
+          <div class="price-divider"></div>
+          <div class="price-features-label">Everything in Creator, plus</div>
           <ul class="price-features">
-            <li><span class="check">&#10003;</span> Everything in Pro</li>
+            <li><span class="check">&#10003;</span> Unlimited episodes</li>
+            <li><span class="check">&#10003;</span> Custom branding &amp; templates</li>
+            <li><span class="check">&#10003;</span> Smart timestamps</li>
+            <li><span class="check">&#10003;</span> Analytics dashboard</li>
+            <li><span class="check">&#10003;</span> Priority support</li>
+            <li><span class="check">&#10003;</span> Early access to new features</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Start Free Trial</a>
+        </div>
+
+        <!-- Card 4: Business -->
+        <div class="price-card reveal reveal-delay-3">
+          <div class="price-name">Business</div>
+          <div class="price-desc">For teams &amp; agencies managing multiple podcasts.</div>
+          <div class="price-amount-row price-monthly">
+            <div class="price-amount"><span class="price-currency">$</span>99</div>
+            <div class="price-per">/month</div>
+          </div>
+          <div class="price-amount-row price-yearly">
+            <div class="price-amount"><span class="price-currency">$</span>79</div>
+            <div class="price-per">/month</div>
+          </div>
+          <div class="price-period price-monthly">Billed monthly</div>
+          <div class="price-period price-yearly">Billed $948/year</div>
+          <div class="price-divider"></div>
+          <div class="price-features-label">Everything in Creator Pro, plus</div>
+          <ul class="price-features">
             <li><span class="check">&#10003;</span> Up to 10 podcasts</li>
             <li><span class="check">&#10003;</span> Team collaboration</li>
-            <li><span class="check">&#10003;</span> Analytics dashboard</li>
             <li><span class="check">&#10003;</span> API access</li>
+            <li><span class="check">&#10003;</span> Dedicated account manager</li>
+            <li><span class="check">&#10003;</span> Custom integrations</li>
+            <li><span class="check">&#10003;</span> SLA &amp; uptime guarantee</li>
           </ul>
-          <a href="#" class="btn btn-ghost" style="width:100%;">Contact Sales</a>
+          <a href="#" class="btn btn-ghost">Contact Sales</a>
         </div>
+
       </div>
     </div>
   </section>
@@ -1840,6 +2420,48 @@
       waveform.appendChild(bar);
     }
 
+    // === Stat count-up animation ===
+    const statEls = document.querySelectorAll('.why-stat-value[data-count]');
+    if (statEls.length) {
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10);
+            const suffix = el.dataset.suffix || '';
+            let current = 0;
+            const duration = 1200;
+            const step = Math.max(1, Math.floor(target / 40));
+            const interval = duration / (target / step);
+            const counter = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                current = target;
+                clearInterval(counter);
+              }
+              el.textContent = current + suffix;
+            }, interval);
+            statObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      statEls.forEach(el => statObserver.observe(el));
+    }
+
+    // === Billing toggle ===
+    const billingToggle = document.getElementById('billingToggle');
+    const pricingSection = document.querySelector('.pricing');
+    const toggleLabels = document.querySelectorAll('.toggle-label');
+    if (billingToggle && pricingSection) {
+      billingToggle.addEventListener('click', () => {
+        const isYearly = billingToggle.classList.toggle('is-yearly');
+        pricingSection.classList.toggle('is-yearly', isYearly);
+        toggleLabels.forEach(label => {
+          label.classList.toggle('active', label.dataset.plan === (isYearly ? 'yearly' : 'monthly'));
+        });
+      });
+    }
+
     // === FAQ accordion ===
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1871,6 +2493,132 @@
         }
       });
     });
+
+    // === Custom Cursor ===
+    (function() {
+      const cursor = document.getElementById('customCursor');
+      const ripple = document.getElementById('cursorRipple');
+      const pool = document.getElementById('ripplePool');
+      if (!cursor || !ripple || !pool) return;
+
+      // Skip on touch / small screens; init on first mouse move as fallback
+      let initialized = false;
+      function initCursor() {
+        if (initialized) return;
+        if (window.innerWidth <= 768) return;
+        initialized = true;
+        cursor.style.opacity = '1';
+        setupCursor();
+      }
+      // Try immediate init for fine-pointer devices
+      if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 768) {
+        initCursor();
+      }
+      // Fallback: init on first real mousemove (covers sandbox/emulated contexts)
+      document.addEventListener('mousemove', function firstMove() {
+        document.removeEventListener('mousemove', firstMove);
+        initCursor();
+      });
+
+      function setupCursor() {
+
+      let mouseX = -100, mouseY = -100;
+      let cursorX = -100, cursorY = -100;
+
+      // Smooth follow with lerp
+      function updatePosition() {
+        cursorX += (mouseX - cursorX) * 0.18;
+        cursorY += (mouseY - cursorY) * 0.18;
+        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+        requestAnimationFrame(updatePosition);
+      }
+      requestAnimationFrame(updatePosition);
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Hide when mouse leaves window
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+      });
+      document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+      });
+
+      // --- State management ---
+      const playSelectors = '.btn-primary, .btn-ghost, .btn-large, button, [role="button"]';
+      const hoverSelectors = 'a, .bento-card, .faq-question, .pricing-card, .nav-links li, input, textarea, select, .mobile-toggle';
+
+      function clearStates() {
+        cursor.classList.remove('is-hover', 'is-play', 'is-active');
+      }
+
+      document.addEventListener('mouseover', (e) => {
+        const playTarget = e.target.closest(playSelectors);
+        const hoverTarget = e.target.closest(hoverSelectors);
+        clearStates();
+        if (playTarget) {
+          cursor.classList.add('is-play');
+        } else if (hoverTarget) {
+          cursor.classList.add('is-hover');
+        }
+      });
+
+      document.addEventListener('mouseout', (e) => {
+        const playTarget = e.target.closest(playSelectors);
+        const hoverTarget = e.target.closest(hoverSelectors);
+        if (playTarget || hoverTarget) clearStates();
+      });
+
+      // --- Ripple pool: spawn rings at click position ---
+      function spawnRipple(x, y) {
+        const frag = document.createDocumentFragment();
+        // Filled splash
+        const fill = document.createElement('div');
+        fill.className = 'ripple-fill';
+        fill.style.left = x + 'px';
+        fill.style.top = y + 'px';
+        frag.appendChild(fill);
+        // 3 expanding rings
+        for (let i = 1; i <= 3; i++) {
+          const ring = document.createElement('div');
+          ring.className = 'ripple-ring ring-' + i;
+          ring.style.left = x + 'px';
+          ring.style.top = y + 'px';
+          frag.appendChild(ring);
+        }
+        pool.appendChild(frag);
+        // Clean up after animations complete
+        setTimeout(() => {
+          fill.remove();
+          pool.querySelectorAll('.ripple-ring').forEach(r => {
+            if (r.style.left === x + 'px' && r.style.top === y + 'px') r.remove();
+          });
+        }, 1100);
+      }
+
+      // Active/click state
+      document.addEventListener('mousedown', (e) => {
+        cursor.classList.add('is-active');
+        // Fire cursor-attached ripple
+        ripple.classList.remove('is-animating');
+        void ripple.offsetWidth;
+        ripple.classList.add('is-animating');
+        // Spawn pool ripple at click position
+        spawnRipple(e.clientX, e.clientY);
+      });
+
+      document.addEventListener('mouseup', () => {
+        cursor.classList.remove('is-active');
+      });
+
+      ripple.addEventListener('animationend', () => {
+        ripple.classList.remove('is-animating');
+      });
+      } // end setupCursor
+    })();
   </script>
 </body>
 </html>
