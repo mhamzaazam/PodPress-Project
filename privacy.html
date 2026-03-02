@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PodPress</title>
+  <meta name="description" content="PodPress Privacy Policy. Learn how we collect, use, and protect your personal data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink: #111111;
+      --porcelain: #F7F5F2;
+      --slate: #2B2F36;
+      --ampersand: #FF5A1F;
+      --cornflower: #3A67FF;
+      --bg: var(--porcelain);
+      --surface: #ffffff;
+      --border: #DDD9D3;
+      --text: var(--ink);
+      --text-muted: #6B6560;
+      --radius: 14px;
+      --radius-full: 999px;
+      --font-display: 'Newsreader', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Navbar */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0;
+      background: rgba(247, 245, 242, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+    .logo-icon { width: 32px; height: 32px; }
+    .logo-icon svg { width: 100%; height: 100%; }
+    .nav-back {
+      font-size: 0.88rem; font-weight: 500; color: var(--text-muted);
+      display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ink); }
+
+    /* Legal page layout */
+    .legal-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .legal-hero h1 em { font-style: italic; color: var(--cornflower); }
+    .legal-hero .updated {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .legal-content {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+    .legal-content section {
+      margin-bottom: 48px;
+      padding: 0;
+    }
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--ink);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-content h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 20px 0 8px;
+      color: var(--ink);
+    }
+    .legal-content p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .legal-content ul {
+      list-style: none;
+      margin: 12px 0 18px;
+      padding: 0;
+    }
+    .legal-content li {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .legal-content li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cornflower);
+      opacity: 0.5;
+    }
+    .legal-content a {
+      color: var(--cornflower);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .legal-content a:hover { color: #2850d9; }
+
+    /* Table of contents */
+    .legal-toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .legal-toc h3 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      margin: 0 0 14px;
+    }
+    .legal-toc ol {
+      list-style: none;
+      counter-reset: toc;
+      padding: 0;
+      margin: 0;
+    }
+    .legal-toc li {
+      counter-increment: toc;
+      padding-left: 0;
+      margin-bottom: 6px;
+    }
+    .legal-toc li::before {
+      content: counter(toc) '.';
+      position: static;
+      width: auto; height: auto;
+      background: none; border-radius: 0;
+      font-weight: 600;
+      color: var(--cornflower);
+      margin-right: 8px;
+      opacity: 1;
+    }
+    .legal-toc a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .legal-toc a:hover { color: var(--ink); }
+
+    /* Footer */
+    .footer {
+      background: var(--surface);
+      padding: 48px 0 32px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-inner span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cornflower); }
+
+    @media (max-width: 768px) {
+      .legal-hero { padding: 120px 0 40px; }
+      .legal-content section { margin-bottom: 36px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 20L20 4C12 4 5.5 10 5.5 18Z" fill="#3A67FF"/><path d="M20 20L36 20C36 12 30 5.5 22 5.5Z" fill="#5B85FF"/><path d="M20 20L20 36C28 36 34.5 30 34.5 22Z" fill="#3A67FF"/><path d="M20 20L4 20C4 28 10 34.5 18 34.5Z" fill="#5B85FF"/></svg></div>
+        PodPress
+      </a>
+      <a href="index.html" class="nav-back">&larr; Back to home</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="legal-hero">
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="updated">Last updated: March 1, 2026</p>
+  </div>
+
+  <!-- Content -->
+  <div class="legal-content">
+
+    <div class="legal-toc">
+      <h3>Table of Contents</h3>
+      <ol>
+        <li><a href="#info-collect">Information We Collect</a></li>
+        <li><a href="#info-use">How We Use Your Information</a></li>
+        <li><a href="#info-share">Information Sharing</a></li>
+        <li><a href="#data-security">Data Security</a></li>
+        <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+        <li><a href="#data-retention">Data Retention</a></li>
+        <li><a href="#your-rights">Your Rights</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <p>At PodPress, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website and services. Please read this policy carefully to understand our practices regarding your personal data.</p>
+
+    <section id="info-collect">
+      <h2>1. Information We Collect</h2>
+      <h3>Information you provide directly</h3>
+      <ul>
+        <li>Account registration details (name, email address, password)</li>
+        <li>Billing and payment information (processed securely via third-party providers)</li>
+        <li>Podcast RSS feed URLs and associated content you submit</li>
+        <li>Newsletter customization preferences and branding assets</li>
+        <li>Communications you send to us (support requests, feedback)</li>
+      </ul>
+      <h3>Information collected automatically</h3>
+      <ul>
+        <li>Device information (browser type, operating system, device identifiers)</li>
+        <li>Usage data (pages visited, features used, time spent on the platform)</li>
+        <li>IP address and approximate geographic location</li>
+        <li>Referral source and search terms used to find our service</li>
+      </ul>
+    </section>
+
+    <section id="info-use">
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Provide, maintain, and improve our services</li>
+        <li>Process your podcast content and generate newsletters</li>
+        <li>Send you service-related notifications and updates</li>
+        <li>Process payments and manage your subscription</li>
+        <li>Respond to your support requests and inquiries</li>
+        <li>Analyze usage patterns to improve our platform</li>
+        <li>Detect, prevent, and address technical issues or fraud</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+    </section>
+
+    <section id="info-share">
+      <h2>3. Information Sharing</h2>
+      <p>We do not sell your personal information. We may share your data only in the following circumstances:</p>
+      <ul>
+        <li><strong>Service providers:</strong> Third-party vendors who assist in operating our platform (hosting, payment processing, analytics)</li>
+        <li><strong>Legal requirements:</strong> When required by law, regulation, or legal process</li>
+        <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+        <li><strong>With your consent:</strong> When you explicitly authorize us to share your information</li>
+      </ul>
+    </section>
+
+    <section id="data-security">
+      <h2>4. Data Security</h2>
+      <p>We implement industry-standard security measures to protect your personal information, including encryption in transit (TLS/SSL), encryption at rest, secure access controls, and regular security audits. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+    </section>
+
+    <section id="cookies">
+      <h2>5. Cookies &amp; Tracking</h2>
+      <p>We use cookies and similar tracking technologies to enhance your experience:</p>
+      <ul>
+        <li><strong>Essential cookies:</strong> Required for the platform to function properly</li>
+        <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our site</li>
+        <li><strong>Preference cookies:</strong> Remember your settings and customizations</li>
+      </ul>
+      <p>You can control cookie preferences through your browser settings. Disabling certain cookies may affect the functionality of our services.</p>
+    </section>
+
+    <section id="data-retention">
+      <h2>6. Data Retention</h2>
+      <p>We retain your personal information for as long as your account is active or as needed to provide our services. If you close your account, we will delete or anonymize your data within 30 days, except where we are required to retain it for legal, accounting, or regulatory purposes.</p>
+    </section>
+
+    <section id="your-rights">
+      <h2>7. Your Rights</h2>
+      <p>Depending on your jurisdiction, you may have the following rights:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
+        <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data</li>
+        <li><strong>Deletion:</strong> Request deletion of your personal data</li>
+        <li><strong>Portability:</strong> Receive your data in a structured, machine-readable format</li>
+        <li><strong>Objection:</strong> Object to certain processing of your data</li>
+        <li><strong>Withdrawal:</strong> Withdraw consent where processing is based on consent</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@podpress.io">privacy@podpress.io</a>.</p>
+    </section>
+
+    <section id="children">
+      <h2>8. Children's Privacy</h2>
+      <p>Our services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If we become aware that we have collected data from a child without parental consent, we will take steps to delete that information promptly.</p>
+    </section>
+
+    <section id="changes">
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy on this page and updating the "Last updated" date. We encourage you to review this page periodically.</p>
+    </section>
+
+    <section id="contact">
+      <h2>10. Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:privacy@podpress.io">privacy@podpress.io</a></li>
+        <li><strong>Address:</strong> PodPress Inc., 548 Market St, Suite 35, San Francisco, CA 94104</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>&copy; 2026 PodPress. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
