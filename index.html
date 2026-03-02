@@ -528,10 +528,10 @@
     .marquee-item .sep {
       width: 8px;
       height: 8px;
-      background: var(--ampersand);
+      background: var(--cornflower);
       border-radius: 50%;
       flex-shrink: 0;
-      opacity: 0.6;
+      opacity: 0.4;
     }
     @keyframes marquee {
       from { transform: translateX(0); }
@@ -548,14 +548,14 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--ampersand);
+      color: var(--slate);
       margin-bottom: 16px;
     }
     .section-label::before {
       content: '';
       width: 20px;
       height: 2px;
-      background: var(--ampersand);
+      background: var(--cornflower);
     }
     .section-title {
       font-family: var(--font-display);
@@ -568,7 +568,7 @@
     }
     .section-title em {
       font-style: italic;
-      color: var(--ampersand);
+      color: var(--cornflower);
     }
     .section-title .blue { color: var(--cornflower); }
     .section-desc {
@@ -595,7 +595,7 @@
       transition: all 0.3s ease;
     }
     .step-card:hover {
-      border-color: var(--ampersand);
+      border-color: var(--cornflower);
       transform: translateY(-4px);
       box-shadow: 0 16px 48px rgba(17,17,17,0.06);
     }
@@ -606,7 +606,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: var(--ampersand);
+      background: var(--cornflower);
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -619,7 +619,7 @@
       margin-bottom: 20px;
       color: var(--border);
     }
-    .step-card:nth-child(1) .step-number { color: var(--ampersand); opacity: 0.3; }
+    .step-card:nth-child(1) .step-number { color: var(--cornflower); opacity: 0.3; }
     .step-card:nth-child(2) .step-number { color: var(--cornflower); opacity: 0.3; }
     .step-card:nth-child(3) .step-number { color: var(--slate); opacity: 0.2; }
     .step-card h3 {
@@ -669,7 +669,7 @@
     .bento-card:hover {
       border-color: transparent;
       transform: translateY(-6px);
-      box-shadow: 0 24px 64px rgba(17,17,17,0.10), 0 0 0 1px rgba(255,90,31,0.15);
+      box-shadow: 0 24px 64px rgba(17,17,17,0.10), 0 0 0 1px rgba(58,103,255,0.15);
     }
     .bento-card-content {
       padding: 24px 28px 28px;
@@ -715,11 +715,11 @@
     }
     .bento-card:hover .bento-visual::before { opacity: 0.75; }
     .bento-1 .bento-visual::before { background: linear-gradient(135deg, #FFF0EB 0%, #FFE0D4 40%, #FFD0C0 100%); }
-    .bento-2 .bento-visual::before { background: linear-gradient(135deg, #FFF0EB 0%, #FFE4D9 50%, #FFDDD0 100%); }
+    .bento-2 .bento-visual::before { background: linear-gradient(135deg, #F0F2F5 0%, #E8EAEF 50%, #DFE2E8 100%); }
     .bento-3 .bento-visual::before { background: linear-gradient(135deg, #EBF0FF 0%, #DDE6FF 50%, #D0DDFF 100%); }
-    .bento-4 .bento-visual::before { background: linear-gradient(135deg, #F0EBF7 0%, #E8E0F4 50%, #DDD4EF 100%); }
-    .bento-5 .bento-visual::before { background: linear-gradient(135deg, #EBF5FF 0%, #DDEEFF 50%, #D0E8FF 100%); }
-    .bento-6 .bento-visual::before { background: linear-gradient(135deg, #EBFFF0 0%, #DDFCE4 50%, #D0F5DA 100%); }
+    .bento-4 .bento-visual::before { background: linear-gradient(135deg, #EEF0F5 0%, #E4E6EE 50%, #DCDFE8 100%); }
+    .bento-5 .bento-visual::before { background: linear-gradient(135deg, #EBF0FF 0%, #DDE6FF 50%, #D0E0FF 100%); }
+    .bento-6 .bento-visual::before { background: linear-gradient(135deg, #F0F2F5 0%, #E6E9EF 50%, #DDE0E8 100%); }
     .bento-1 .bento-visual { min-height: 300px; }
 
     /* --- Glass icon base --- */
@@ -882,7 +882,7 @@
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .rss-node-from {
-      background: linear-gradient(135deg, var(--ampersand), #FF8A5C);
+      background: linear-gradient(135deg, var(--slate), #5A6170);
     }
     .rss-node-to {
       background: linear-gradient(135deg, var(--cornflower), #6B8FFF);
@@ -893,7 +893,7 @@
       flex: 1;
       height: 3px;
       border-radius: 2px;
-      background: linear-gradient(90deg, rgba(255,90,31,0.2), rgba(58,103,255,0.2));
+      background: linear-gradient(90deg, rgba(43,47,54,0.15), rgba(58,103,255,0.2));
       position: relative;
       overflow: hidden;
     }
@@ -903,7 +903,7 @@
       width: 24px;
       height: 100%;
       border-radius: 2px;
-      background: linear-gradient(90deg, var(--ampersand), var(--cornflower));
+      background: linear-gradient(90deg, var(--slate), var(--cornflower));
       animation: rss-flow 1.8s ease-in-out infinite;
     }
     @keyframes rss-flow {
@@ -916,7 +916,7 @@
       position: absolute;
       inset: -6px;
       border-radius: 20px;
-      border: 2px solid var(--ampersand);
+      border: 2px solid var(--cornflower);
       opacity: 0;
       animation: rss-ping 2s ease-out infinite;
     }
@@ -954,10 +954,10 @@
       cursor: default;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .bento-3:hover .export-chip:nth-child(1) { background: linear-gradient(135deg, var(--ampersand), #FF8A5C); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(255,90,31,0.25); transition-delay: 0s; }
-    .bento-3:hover .export-chip:nth-child(2) { background: linear-gradient(135deg, var(--cornflower), #6B8FFF); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(58,103,255,0.25); transition-delay: 0.05s; }
-    .bento-3:hover .export-chip:nth-child(3) { background: linear-gradient(135deg, var(--slate), #444A54); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(43,47,54,0.25); transition-delay: 0.1s; }
-    .bento-3:hover .export-chip:nth-child(4) { background: linear-gradient(135deg, var(--ampersand), #FF8A5C); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(255,90,31,0.25); transition-delay: 0.15s; }
+    .bento-3:hover .export-chip:nth-child(1) { background: linear-gradient(135deg, var(--cornflower), #6B8FFF); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(58,103,255,0.25); transition-delay: 0s; }
+    .bento-3:hover .export-chip:nth-child(2) { background: linear-gradient(135deg, var(--slate), #444A54); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(43,47,54,0.25); transition-delay: 0.05s; }
+    .bento-3:hover .export-chip:nth-child(3) { background: linear-gradient(135deg, var(--cornflower), #6B8FFF); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(58,103,255,0.25); transition-delay: 0.1s; }
+    .bento-3:hover .export-chip:nth-child(4) { background: linear-gradient(135deg, var(--slate), #444A54); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(43,47,54,0.25); transition-delay: 0.15s; }
     .bento-3:hover .export-chip:nth-child(5) { background: linear-gradient(135deg, var(--cornflower), #6B8FFF); color: #fff; border-color: transparent; transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(58,103,255,0.25); transition-delay: 0.2s; }
 
     /* --- Card 4: Custom Branding --- */
@@ -975,7 +975,7 @@
       cursor: default;
       box-shadow: 0 4px 14px rgba(0,0,0,0.1);
     }
-    .brand-pill:nth-child(1) { height: 58px; background: linear-gradient(180deg, var(--ampersand), #FF8A5C); }
+    .brand-pill:nth-child(1) { height: 58px; background: linear-gradient(180deg, var(--cornflower), #6B8FFF); }
     .brand-pill:nth-child(2) { height: 44px; background: linear-gradient(180deg, var(--cornflower), #6B8FFF); }
     .brand-pill:nth-child(3) { height: 68px; background: linear-gradient(180deg, var(--slate), #444A54); }
     .brand-pill:nth-child(4) { height: 36px; background: linear-gradient(180deg, #DDD9D3, #C5C0B9); }
@@ -1004,10 +1004,10 @@
     .ts-fill {
       height: 100%;
       width: 42%;
-      background: linear-gradient(90deg, var(--ampersand), #FF8A5C);
+      background: linear-gradient(90deg, var(--cornflower), #6B8FFF);
       border-radius: 3px;
       transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 0 12px rgba(255,90,31,0.3);
+      box-shadow: 0 0 12px rgba(58,103,255,0.3);
     }
     .bento-5:hover .ts-fill { width: 75%; }
     .ts-pin {
@@ -1018,15 +1018,15 @@
       height: 16px;
       border-radius: 50%;
       background: var(--surface);
-      border: 3px solid var(--ampersand);
-      box-shadow: 0 2px 8px rgba(255,90,31,0.3);
+      border: 3px solid var(--cornflower);
+      box-shadow: 0 2px 8px rgba(58,103,255,0.3);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 1;
     }
-    .ts-pin:nth-child(3) { left: 22%; border-color: var(--ampersand); }
-    .ts-pin:nth-child(4) { left: 48%; border-color: var(--cornflower); box-shadow: 0 2px 8px rgba(58,103,255,0.3); }
-    .ts-pin:nth-child(5) { left: 78%; border-color: var(--slate); box-shadow: 0 2px 8px rgba(43,47,54,0.2); }
-    .bento-5:hover .ts-pin { transform: translate(-50%, -50%) scale(1.35); background: var(--ampersand); border-color: #fff; }
+    .ts-pin:nth-child(3) { left: 22%; border-color: var(--cornflower); }
+    .ts-pin:nth-child(4) { left: 48%; border-color: var(--slate); box-shadow: 0 2px 8px rgba(43,47,54,0.2); }
+    .ts-pin:nth-child(5) { left: 78%; border-color: var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .bento-5:hover .ts-pin { transform: translate(-50%, -50%) scale(1.35); background: var(--cornflower); border-color: #fff; }
     .bento-5:hover .ts-pin:nth-child(4) { background: var(--cornflower); }
     .bento-5:hover .ts-pin:nth-child(5) { background: var(--slate); }
     .ts-times {
@@ -1061,20 +1061,20 @@
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .chart-col:nth-child(1) { height: 30%; background: linear-gradient(180deg, rgba(255,90,31,0.4), rgba(255,90,31,0.15)); }
+    .chart-col:nth-child(1) { height: 30%; background: linear-gradient(180deg, rgba(43,47,54,0.3), rgba(43,47,54,0.1)); }
     .chart-col:nth-child(2) { height: 50%; background: linear-gradient(180deg, rgba(58,103,255,0.4), rgba(58,103,255,0.15)); }
-    .chart-col:nth-child(3) { height: 38%; background: linear-gradient(180deg, rgba(255,90,31,0.4), rgba(255,90,31,0.15)); }
+    .chart-col:nth-child(3) { height: 38%; background: linear-gradient(180deg, rgba(43,47,54,0.3), rgba(43,47,54,0.1)); }
     .chart-col:nth-child(4) { height: 70%; background: linear-gradient(180deg, rgba(58,103,255,0.4), rgba(58,103,255,0.15)); }
-    .chart-col:nth-child(5) { height: 55%; background: linear-gradient(180deg, rgba(255,90,31,0.4), rgba(255,90,31,0.15)); }
+    .chart-col:nth-child(5) { height: 55%; background: linear-gradient(180deg, rgba(43,47,54,0.3), rgba(43,47,54,0.1)); }
     .chart-col:nth-child(6) { height: 85%; background: linear-gradient(180deg, rgba(58,103,255,0.4), rgba(58,103,255,0.15)); }
-    .chart-col:nth-child(7) { height: 65%; background: linear-gradient(180deg, rgba(255,90,31,0.4), rgba(255,90,31,0.15)); }
-    .bento-6:hover .chart-col:nth-child(1) { height: 48%; background: linear-gradient(180deg, var(--ampersand), #FF8A5C); box-shadow: 0 4px 14px rgba(255,90,31,0.3); }
+    .chart-col:nth-child(7) { height: 65%; background: linear-gradient(180deg, rgba(43,47,54,0.3), rgba(43,47,54,0.1)); }
+    .bento-6:hover .chart-col:nth-child(1) { height: 48%; background: linear-gradient(180deg, var(--slate), #5A6170); box-shadow: 0 4px 14px rgba(43,47,54,0.2); }
     .bento-6:hover .chart-col:nth-child(2) { height: 62%; background: linear-gradient(180deg, var(--cornflower), #6B8FFF); box-shadow: 0 4px 14px rgba(58,103,255,0.3); transition-delay: 0.03s; }
-    .bento-6:hover .chart-col:nth-child(3) { height: 52%; background: linear-gradient(180deg, var(--ampersand), #FF8A5C); box-shadow: 0 4px 14px rgba(255,90,31,0.3); transition-delay: 0.06s; }
+    .bento-6:hover .chart-col:nth-child(3) { height: 52%; background: linear-gradient(180deg, var(--slate), #5A6170); box-shadow: 0 4px 14px rgba(43,47,54,0.2); transition-delay: 0.06s; }
     .bento-6:hover .chart-col:nth-child(4) { height: 82%; background: linear-gradient(180deg, var(--cornflower), #6B8FFF); box-shadow: 0 4px 14px rgba(58,103,255,0.3); transition-delay: 0.09s; }
-    .bento-6:hover .chart-col:nth-child(5) { height: 68%; background: linear-gradient(180deg, var(--ampersand), #FF8A5C); box-shadow: 0 4px 14px rgba(255,90,31,0.3); transition-delay: 0.12s; }
+    .bento-6:hover .chart-col:nth-child(5) { height: 68%; background: linear-gradient(180deg, var(--slate), #5A6170); box-shadow: 0 4px 14px rgba(43,47,54,0.2); transition-delay: 0.12s; }
     .bento-6:hover .chart-col:nth-child(6) { height: 96%; background: linear-gradient(180deg, var(--cornflower), #6B8FFF); box-shadow: 0 4px 14px rgba(58,103,255,0.3); transition-delay: 0.15s; }
-    .bento-6:hover .chart-col:nth-child(7) { height: 78%; background: linear-gradient(180deg, var(--ampersand), #FF8A5C); box-shadow: 0 4px 14px rgba(255,90,31,0.3); transition-delay: 0.18s; }
+    .bento-6:hover .chart-col:nth-child(7) { height: 78%; background: linear-gradient(180deg, var(--slate), #5A6170); box-shadow: 0 4px 14px rgba(43,47,54,0.2); transition-delay: 0.18s; }
 
     /* ========== TESTIMONIALS ========== */
     .testimonials .container > .section-title { text-align: center; }
@@ -1094,15 +1094,15 @@
       transition: all 0.3s ease;
     }
     .testimonial-card:hover {
-      border-color: var(--ampersand);
+      border-color: var(--cornflower);
       transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(17,17,17,0.06);
+      box-shadow: 0 16px 48px rgba(58,103,255,0.06);
     }
     .testimonial-stars {
       display: flex;
       gap: 3px;
       margin-bottom: 20px;
-      color: var(--ampersand);
+      color: #F59E0B;
       font-size: 1rem;
     }
     .testimonial-text {
@@ -1171,7 +1171,7 @@
       transition: background 0.25s ease;
       flex-shrink: 0;
     }
-    .toggle-switch.is-yearly { background: var(--ampersand); }
+    .toggle-switch.is-yearly { background: var(--cornflower); }
     .toggle-switch::after {
       content: '';
       position: absolute;
@@ -1189,8 +1189,8 @@
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.04em;
-      color: var(--ampersand);
-      background: rgba(255,90,31,0.08);
+      color: var(--cornflower);
+      background: rgba(58,103,255,0.08);
       padding: 3px 10px;
       border-radius: var(--radius-full);
     }
@@ -1318,8 +1318,8 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: rgba(255,90,31,0.08);
-      color: var(--ampersand);
+      background: rgba(58,103,255,0.08);
+      color: var(--cornflower);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1351,7 +1351,7 @@
       overflow: hidden;
       transition: border-color 0.3s;
     }
-    .faq-item.active { border-color: var(--ampersand); }
+    .faq-item.active { border-color: var(--cornflower); }
     .faq-question {
       width: 100%;
       display: flex;
@@ -1379,9 +1379,9 @@
     }
     .faq-item.active .faq-question .icon {
       transform: rotate(45deg);
-      background: var(--ampersand);
+      background: var(--cornflower);
       color: #fff;
-      border-color: var(--ampersand);
+      border-color: var(--cornflower);
     }
     .faq-answer {
       max-height: 0;
@@ -1461,7 +1461,7 @@
       transition: color 0.2s;
       font-weight: 450;
     }
-    .footer-col a:hover { color: var(--ampersand); }
+    .footer-col a:hover { color: var(--cornflower); }
     .footer-bottom {
       display: flex;
       align-items: center;
@@ -1904,7 +1904,7 @@
         <!-- Right: feature cards -->
         <div class="why-cards">
           <div class="why-card reveal">
-            <div class="why-card-icon icon-orange">
+            <div class="why-card-icon icon-blue">
               <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
             <h4>Lightning Fast</h4>
@@ -1925,7 +1925,7 @@
             <p>Designed by podcasters, for podcasters. Every feature exists because real creators asked for it.</p>
           </div>
           <div class="why-card reveal reveal-delay-3">
-            <div class="why-card-icon icon-orange">
+            <div class="why-card-icon icon-slate">
               <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h4>Reliable &amp; Secure</h4>
