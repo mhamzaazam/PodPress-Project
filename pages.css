@@ -41,7 +41,7 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--border);
 }
 .sp-nav-inner {
-  max-width: 900px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -64,7 +64,7 @@ img { max-width: 100%; display: block; }
 
 /* ─── Page Hero ─── */
 .sp-hero {
-  padding: 140px 0 60px;
+  padding: 140px 0 100px;
   text-align: center;
 }
 .sp-hero-inner {
@@ -95,7 +95,7 @@ img { max-width: 100%; display: block; }
 
 /* ─── Shared Section Atoms ─── */
 .sp-container {
-  max-width: 900px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -130,7 +130,7 @@ img { max-width: 100%; display: block; }
    SECTION 1 — Feature Grid
    ========================================================= */
 .sp-feature-grid {
-  padding: 72px 0;
+  padding: 120px 0;
 }
 .sp-feature-grid.alt-bg { background: var(--surface); }
 .sp-grid {
@@ -180,7 +180,7 @@ img { max-width: 100%; display: block; }
    SECTION 2 — Showcase (alternating text + visual blocks)
    ========================================================= */
 .sp-showcase {
-  padding: 72px 0;
+  padding: 120px 0;
 }
 .sp-showcase.alt-bg { background: var(--surface); }
 .sp-block {
@@ -234,11 +234,11 @@ img { max-width: 100%; display: block; }
    SECTION 3 — Stats Strip
    ========================================================= */
 .sp-stats {
-  padding: 44px 0;
+  padding: 56px 0;
   background: var(--slate);
 }
 .sp-stats-row {
-  max-width: 900px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
@@ -264,7 +264,7 @@ img { max-width: 100%; display: block; }
    SECTION 4 — FAQ Accordion
    ========================================================= */
 .sp-faq {
-  padding: 72px 0;
+  padding: 120px 0;
 }
 .sp-faq.alt-bg { background: var(--surface); }
 .sp-faq-list {
@@ -315,7 +315,7 @@ img { max-width: 100%; display: block; }
    SECTION 5 — Timeline
    ========================================================= */
 .sp-timeline {
-  padding: 72px 0;
+  padding: 120px 0;
 }
 .sp-timeline.alt-bg { background: var(--surface); }
 .sp-tl-list {
@@ -382,7 +382,7 @@ img { max-width: 100%; display: block; }
    SECTION 6 — CTA Banner
    ========================================================= */
 .sp-cta {
-  padding: 72px 0;
+  padding: 120px 0;
   background: var(--slate);
   text-align: center;
 }
@@ -423,7 +423,7 @@ img { max-width: 100%; display: block; }
   padding: 56px 0 36px;
 }
 .footer .container {
-  max-width: 900px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -506,7 +506,7 @@ img { max-width: 100%; display: block; }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
-  .sp-hero { padding: 120px 0 40px; }
+  .sp-hero { padding: 120px 0 60px; }
   .sp-hero h1 { font-size: 2rem; }
   .sp-grid { grid-template-columns: 1fr !important; }
   .sp-block { grid-template-columns: 1fr; gap: 28px; }
